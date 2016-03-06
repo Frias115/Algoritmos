@@ -25,7 +25,6 @@ float Polinomio::evaluar(float numeroAEvaluar) {
 }
 
 
-
 float Polinomio::obtenerMaximo() {
 	
 	SolucionParcial solucionInicial;
@@ -78,7 +77,7 @@ float Polinomio::obtenerMaximo(SolucionParcial padre) {
 	float mutacion = 0;
 	int numeroHijos;
 
-	numeroHijos = rand() % 5 + 3;
+	numeroHijos = rand() % 3 + 3;
 
 	for (int j = 0; j < numeroHijos; j++) {
 
