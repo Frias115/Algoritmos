@@ -2,11 +2,13 @@
 
 
 void ListaEnlazada::setValor(int posicion, int nuevoValor) {
+	assert(n > 0);
 	assert(posicion >= 0 && posicion <= n - 1);
 	this->getNodo(posicion)->elemento = nuevoValor;
 }
 
 int ListaEnlazada::getValor(int posicion) {
+	assert(n > 0);
 	assert(posicion >= 0 && posicion <= n - 1);
 	return (this->getNodo(posicion)->elemento);
 }
@@ -23,8 +25,8 @@ void ListaEnlazada::insertar(int posicion, int nuevoValor) {
 	Nodo * nuevoNodo = new Nodo;
 	//Caso lista vacia
 	if (n == 0) {
-		vector = nuevoNodo;
-		vector->elemento = nuevoValor;
+		lista = nuevoNodo;
+		lista->elemento = nuevoValor;
 		n++;
 	}
 	//Caso normal
@@ -40,7 +42,7 @@ void ListaEnlazada::insertar(int posicion, int nuevoValor) {
 
 		nuevoNodo->siguienteNodo = getNodo(posicion);
 		nuevoNodo->elemento = nuevoValor;
-		vector = nuevoNodo;
+		lista = nuevoNodo;
 		n++;
 	}
 	//Caso insertar al final
@@ -69,7 +71,7 @@ void ListaEnlazada::eliminar(int posicion) {
 	else if (posicion == 0 && n > 0) {
 		aux = getNodo(posicion + 1);
 		delete getNodo(posicion);
-		vector = aux;
+		lista = aux;
 		n--;
 	}
 	//Caso eliminar al final
@@ -84,7 +86,7 @@ void ListaEnlazada::eliminar(int posicion) {
 Nodo * ListaEnlazada::getNodo(int posicion)
 {
 	assert(posicion >= 0 && posicion <= n);
-	Nodo * result = this->vector;
+	Nodo * result = this->lista;
 
 	if (posicion == 0) {
 		return result;
@@ -100,13 +102,14 @@ Nodo * ListaEnlazada::getNodo(int posicion)
 
 ListaEnlazada::ListaEnlazada()
 {
-	this->n = 0;
+	n = 0;
+	lista = NULL;
 }
 
 
 ListaEnlazada::~ListaEnlazada()
 {
-	for (int i = 0; i < n; i++) {
+	for (int i = 0; i < n;) {
 		eliminar(i);
 	}
 }

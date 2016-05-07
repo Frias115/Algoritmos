@@ -8,7 +8,7 @@ using namespace std;
 class ListaEnlazada
 {
 private:
-	Nodo* vector;
+	Nodo* lista;
 	int n; //  Número actual de elementos en la lista
 	Nodo* getNodo(int posicion);
 public:

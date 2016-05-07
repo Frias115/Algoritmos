@@ -4,8 +4,8 @@ void imprimirListaEnlazada(ListaEnlazada * lista)
 {
 	assert(lista != NULL);
 
-	// Imprimimos tamaño y capacidad
-	cout << "n=" << lista->getN() << "|ListaContigua= ";
+	// Imprimimos tamaño 
+	cout << "n=" << lista->getN() << "|ListaEnlazada= ";
 
 	// Si la ListaEnlazada está vacía, imprimimos algo especial
 	if (lista->getN() == 0) cout << "vacia";
